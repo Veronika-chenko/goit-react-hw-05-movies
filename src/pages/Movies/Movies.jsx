@@ -47,14 +47,14 @@ export const Movies = () => {
           <input type="text" autoComplete="off" name="searchQuery" />
           <button type="submit">Search</button>
         </SearchForm>
-        {/* <MovieList>
+        <MovieList>
           {movies.map(({ id, poster_path, title, name }) => (
             <MovieItem key={id}>
               <img src={IMG_URL + poster_path} alt={title ?? name} />
               <p>{title ?? name}</p>
             </MovieItem>
           ))}
-        </MovieList> */}
+        </MovieList>
         <ul>
           <li>
             <Link to="moviedetails">MovieDetails</Link>
