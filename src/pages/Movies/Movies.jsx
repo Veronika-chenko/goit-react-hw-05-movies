@@ -4,7 +4,6 @@ import { Link, Outlet } from 'react-router-dom';
 import { getSearchData, IMG_URL } from 'components/services/Api';
 import { MovieList, MovieItem } from '../Home/Home.styled';
 import { SearchForm } from './Movies.styled';
-// page of movie search by keyword
 
 export const Movies = () => {
   const [query, setQuery] = useState('');
@@ -47,6 +46,7 @@ export const Movies = () => {
           <input type="text" autoComplete="off" name="searchQuery" />
           <button type="submit">Search</button>
         </SearchForm>
+
         <MovieList>
           {movies.map(({ id, poster_path, title, name }) => (
             <MovieItem key={id}>
@@ -55,11 +55,11 @@ export const Movies = () => {
             </MovieItem>
           ))}
         </MovieList>
-        <ul>
+        {/* <ul>
           <li>
             <Link to="moviedetails">MovieDetails</Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <Outlet />
     </div>

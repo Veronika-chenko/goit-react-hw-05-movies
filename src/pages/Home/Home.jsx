@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import { getTrending, IMG_URL } from 'components/services/Api'; //Home
 import { TopTitle, MovieList, MovieItem } from './Home.styled';
-import { getMovieDetails } from '../../components/services/Api'; //by Id
+// import { getMovieDetails } from '../../components/services/Api'; //by Id
 
-export const Home = () => {
+export const Home = ({ onClick }) => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -31,26 +31,27 @@ export const Home = () => {
   }, []);
 
   // #2
-  useEffect(() => {
-    if (selectedMovie === null) return;
-    const controller = new AbortController();
-    const signal = {
-      signal: controller.signal,
-    };
-    (async function () {
-      try {
-        const data = await getMovieDetails(selectedMovie, signal);
-        console.log(data);
-        // setMovies(results);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [selectedMovie]);
+  // useEffect(() => {
+  //   if (selectedMovie === null) return;
+  //   const controller = new AbortController();
+  //   const signal = {
+  //     signal: controller.signal,
+  //   };
+  //   (async function () {
+  //     try {
+  //       const data = await getMovieDetails(selectedMovie, signal);
+  //       console.log(data);
+  //       // setMovies(results);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, [selectedMovie]);
 
   const handleItemClick = id => {
     setSelectedMovie(id);
     console.log(id);
+    onClick(selectedMovie);
   };
 
   return (
