@@ -25,3 +25,6 @@ export const StyledLink = styled(NavLink)`
         color: ${p => p.theme.colors.accent};
     }
 `
+export const Layout = styled.main`
+    padding-top: ${p => p.theme.space[4]}px;
+`

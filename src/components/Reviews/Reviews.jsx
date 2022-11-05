@@ -1,7 +1,31 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getMovieReviews } from 'components/services/Api';
+//
 import { ReviewList } from './Reviews.styled';
-// додати для відсутності коментарів
-export const Reviews = ({ reviewList }) => {
-  // return <h2>Reviews</h2>;
+
+export const Reviews = () => {
+  const [reviewList, setReviewList] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = {
+      signal: controller.signal,
+    };
+    (async function () {
+      try {
+        const { results } = await getMovieReviews(id, signal);
+        setReviewList(results);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+
+    return () => {
+      controller.abort();
+    };
+  }, [id]);
+
   return (
     <ReviewList>
       {reviewList.map(({ id, author, content }) => (

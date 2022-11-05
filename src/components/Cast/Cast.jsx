@@ -1,11 +1,35 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { IMG_URL } from 'components/services/Api';
+import { getMovieCredits } from 'components/services/Api';
 //
 import { CastList } from './Cast.styled';
 
-export const Cast = ({ cast }) => {
+export const Cast = () => {
+  const [castList, setCastList] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = {
+      signal: controller.signal,
+    };
+    (async function () {
+      try {
+        const { cast } = await getMovieCredits(id, signal);
+        setCastList(cast);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+    return () => {
+      controller.abort();
+    };
+  }, [id]);
+
   return (
     <CastList>
-      {cast.map(({ id, profile_path, character, name }) => (
+      {castList.map(({ id, profile_path, character, name }) => (
         <li key={id}>
           <div>
             <img
