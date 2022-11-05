@@ -28,12 +28,16 @@ export const Reviews = () => {
 
   return (
     <ReviewList>
-      {reviewList.map(({ id, author, content }) => (
-        <li key={id}>
-          <h4>Author: {author}</h4>
-          <p>{content}</p>
-        </li>
-      ))}
+      {reviewList.length === 0 ? (
+        <p>We don't have any reviews for this movie</p>
+      ) : (
+        reviewList.map(({ id, author, content }) => (
+          <li key={id}>
+            <h4>Author: {author}</h4>
+            <p>{content}</p>
+          </li>
+        ))
+      )}
     </ReviewList>
   );
 };
