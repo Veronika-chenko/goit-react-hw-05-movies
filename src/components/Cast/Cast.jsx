@@ -3,7 +3,13 @@ import { useParams } from 'react-router-dom';
 import { IMG_URL } from 'components/services/Api';
 import { getMovieCredits } from 'components/services/Api';
 //
-import { CastList, MovieItem, ImageWrap } from './Cast.styled';
+import {
+  CastList,
+  MovieItem,
+  ImageWrap,
+  InfoWrap,
+  ActorName,
+} from './Cast.styled';
 
 export default function Cast() {
   const [castList, setCastList] = useState([]);
@@ -41,8 +47,10 @@ export default function Cast() {
               alt={name}
             />
           </ImageWrap>
-          <p>{name}</p>
-          <p>Character: {character}</p>
+          <InfoWrap>
+            <ActorName>{name}</ActorName>
+            <p>Character: {character}</p>
+          </InfoWrap>
         </MovieItem>
       ))}
     </CastList>

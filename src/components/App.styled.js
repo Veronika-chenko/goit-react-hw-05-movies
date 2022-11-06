@@ -17,7 +17,6 @@ export const Container = styled.div`
 `
 
 export const Header = styled.header`
-    /* font-size: ${p => p.theme.fontSizes.m}px; */
     border-bottom: ${p => p.theme.borders.bold} ${p => p.theme.colors.secondaryBg};
 `
 

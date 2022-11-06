@@ -41,3 +41,13 @@ export const ImageWrap = styled.div`
         width: 100%;
     }
 `
+export const InfoWrap = styled.div`
+    padding-top: ${p => p.theme.space[3]}px;
+    padding-bottom: ${p => p.theme.space[3]}px;
+    padding-left: ${p => p.theme.space[2]}px;
+    padding-right: ${p => p.theme.space[2]}px;
+`
+export const ActorName = styled.p`
+    font-size: ${p => p.theme.fontSizes.m}px;
+    font-weight: ${p => p.theme.fontWeights.bold};
+`
