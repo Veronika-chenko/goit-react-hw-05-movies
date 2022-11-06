@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 //
 import { getSearchData, IMG_URL } from 'components/services/Api';
-import { MovieList, MovieItem } from '../Home/Home.styled';
+import { MovieList, MovieItem, MovieTitle } from '../Home/Home.styled';
 import { SearchForm } from './Movies.styled';
 
-export const Movies = () => {
+export default function Movies() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const location = useLocation();
@@ -53,7 +53,7 @@ export const Movies = () => {
             <MovieItem key={id}>
               <Link to={`${id}`} state={{ from: location }}>
                 <img src={IMG_URL + poster_path} alt={title ?? name} />
-                <p>{title ?? name}</p>
+                <MovieTitle>{title ?? name}</MovieTitle>
               </Link>
             </MovieItem>
           ))}
@@ -62,4 +62,4 @@ export const Movies = () => {
       <Outlet />
     </>
   );
-};
+}

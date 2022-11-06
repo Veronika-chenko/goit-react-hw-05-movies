@@ -5,7 +5,7 @@ import { getMovieCredits } from 'components/services/Api';
 //
 import { CastList } from './Cast.styled';
 
-export const Cast = () => {
+export default function Cast() {
   const [castList, setCastList] = useState([]);
   const { id } = useParams();
 
@@ -47,4 +47,4 @@ export const Cast = () => {
       ))}
     </CastList>
   );
-};
+}

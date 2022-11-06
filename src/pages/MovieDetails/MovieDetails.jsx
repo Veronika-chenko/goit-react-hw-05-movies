@@ -5,7 +5,7 @@ import { getMovieDetails } from 'components/services/Api';
 import { MovieCard } from 'components/MovieCard';
 import { AdditionalInfoWrap } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
   const [movie, setCurrMovieData] = useState(null);
   const { id } = useParams();
   const location = useLocation();
@@ -46,4 +46,4 @@ export const MovieDetails = () => {
       <Outlet />
     </>
   );
-};
+}

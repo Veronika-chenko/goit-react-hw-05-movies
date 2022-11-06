@@ -4,7 +4,7 @@ import { getMovieReviews } from 'components/services/Api';
 //
 import { ReviewList } from './Reviews.styled';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviewList, setReviewList] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -40,4 +40,4 @@ export const Reviews = () => {
       )}
     </ReviewList>
   );
-};
+}
