@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
-//
 import { getMovieDetails } from 'components/services/Api';
-import { MovieCard } from 'components/MovieCard';
-import { AdditionalInfoWrap } from './MovieDetails.styled';
+import MovieDetailsCard from 'components/MovieDetailsCard';
+import {
+  TopTitle,
+  AdditionalInfoWrap,
+  StyledLink,
+} from './MovieDetails.styled';
 
 export default function MovieDetails() {
   const [movie, setCurrMovieData] = useState(null);
@@ -32,15 +35,20 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to={backLinkHref}>Go back</Link>
-      <MovieCard movie={movie} />
-      <p style={{ marginBottom: '8px' }}>Additional information</p>
+      <Link
+        to={backLinkHref}
+        style={{ display: 'inline-block', marginBottom: '8px' }}
+      >
+        Go back
+      </Link>
+      <MovieDetailsCard movie={movie} />
+      <TopTitle>Additional information</TopTitle>
       <AdditionalInfoWrap>
         <li>
-          <Link to="cast">Cast</Link>
+          <StyledLink to="cast">Cast</StyledLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <StyledLink to="reviews">Reviews</StyledLink>
         </li>
       </AdditionalInfoWrap>
       <Outlet />

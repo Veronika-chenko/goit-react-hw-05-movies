@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'components/services/Api';
 import { TopTitle } from './Home.styled';
-import MovieList1 from 'components/MovieItem';
+import MovieCollection from 'components/MovieCollection';
 
 export default function Home() {
   const [movieList, setMovieList] = useState(null);
@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <TopTitle>Trending today</TopTitle>
-      <MovieList1 movies={movieList} />
+      <MovieCollection movies={movieList} />
     </>
   );
 }

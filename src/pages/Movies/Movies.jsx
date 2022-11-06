@@ -1,31 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
-//
-import { getSearchData, IMG_URL } from 'components/services/Api';
-import { MovieList, MovieItem, MovieTitle } from '../Home/Home.styled';
+import { Outlet, useSearchParams } from 'react-router-dom';
+import { getSearchData } from 'components/services/Api';
 import { SearchForm } from './Movies.styled';
+import MovieCollection from 'components/MovieCollection';
+import { TopTitle } from '../Home/Home.styled';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
-  const location = useLocation();
-  //
+  const [movieList, setMovieList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') ?? '';
-
-  const updateQueryString = query => {
-    const nextParams = query !== '' ? { query } : {};
-    setSearchParams(nextParams);
-  };
-
-  const handleSubmit = e => {
-    const { value } = e.target.elements.searchQuery;
-    e.preventDefault();
-    if (value.trim() === query) return;
-    setQuery(value);
-    // update саме на submit
-    updateQueryString(value);
-  };
 
   useEffect(() => {
     if (query === '' && movieName === '') return;
@@ -33,31 +17,35 @@ export default function Movies() {
     (async function () {
       try {
         const { results } = await getSearchData(query);
-        setMovies(results);
+        setMovieList(results);
       } catch (error) {
         console.log(error);
       }
     })();
   }, [movieName, query]);
 
+  const handleSubmit = e => {
+    const { value } = e.target.elements.searchQuery;
+    e.preventDefault();
+    if (value.trim() === query) return;
+    setQuery(value);
+    updateQueryString(value);
+  };
+
+  const updateQueryString = query => {
+    const nextParams = query !== '' ? { query } : {};
+    setSearchParams(nextParams);
+  };
+
   return (
     <>
-      <h1>Movies</h1>
+      <TopTitle>Movies</TopTitle>
       <div>
         <SearchForm onSubmit={handleSubmit}>
           <input type="text" name="searchQuery" />
           <button type="submit">Search</button>
         </SearchForm>
-        <MovieList>
-          {movies.map(({ id, poster_path, title, name }) => (
-            <MovieItem key={id}>
-              <Link to={`${id}`} state={{ from: location }}>
-                <img src={IMG_URL + poster_path} alt={title ?? name} />
-                <MovieTitle>{title ?? name}</MovieTitle>
-              </Link>
-            </MovieItem>
-          ))}
-        </MovieList>
+        <MovieCollection movies={movieList} />
       </div>
       <Outlet />
     </>

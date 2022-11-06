@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { IMG_URL } from 'components/services/Api';
 import { getMovieCredits } from 'components/services/Api';
 //
-import { CastList } from './Cast.styled';
+import { CastList, MovieItem, ImageWrap } from './Cast.styled';
 
 export default function Cast() {
   const [castList, setCastList] = useState([]);
@@ -30,8 +30,8 @@ export default function Cast() {
   return (
     <CastList>
       {castList.map(({ id, profile_path, character, name }) => (
-        <li key={id}>
-          <div>
+        <MovieItem key={id}>
+          <ImageWrap>
             <img
               src={
                 profile_path
@@ -40,10 +40,10 @@ export default function Cast() {
               }
               alt={name}
             />
-          </div>
+          </ImageWrap>
           <p>{name}</p>
           <p>Character: {character}</p>
-        </li>
+        </MovieItem>
       ))}
     </CastList>
   );

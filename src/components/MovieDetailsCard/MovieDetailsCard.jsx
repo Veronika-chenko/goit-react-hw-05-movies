@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { IMG_URL } from './services/Api';
+import { IMG_URL } from '../services/Api';
 import {
   CardInnerWrap,
   MovieImage,
   Title,
   InfoWrap,
-} from '../pages/MovieDetails/MovieDetails.styled';
+} from './MovieDetailsCard.styled';
 
-export const MovieCard = ({ movie }) => {
+export default function MovieDetailsCard({ movie }) {
   if (!movie) return;
   return (
     <CardInnerWrap>
@@ -28,8 +28,8 @@ export const MovieCard = ({ movie }) => {
       </InfoWrap>
     </CardInnerWrap>
   );
-};
+}
 
-MovieCard.propType = {
+MovieDetailsCard.propType = {
   movie: PropTypes.object.isRequired,
 };
