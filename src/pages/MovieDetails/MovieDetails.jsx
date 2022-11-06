@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 //
 import { getMovieDetails } from 'components/services/Api';
 import { MovieCard } from 'components/MovieCard';
@@ -8,6 +8,8 @@ import { AdditionalInfoWrap } from './MovieDetails.styled';
 export const MovieDetails = () => {
   const [movie, setCurrMovieData] = useState(null);
   const { id } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const controller = new AbortController();
@@ -30,7 +32,7 @@ export const MovieDetails = () => {
 
   return (
     <>
-      {/* <Link to="">Go back</Link> */}
+      <Link to={backLinkHref}>Go back</Link>
       <MovieCard movie={movie} />
       <p style={{ marginBottom: '8px' }}>Additional information</p>
       <AdditionalInfoWrap>
