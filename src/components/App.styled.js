@@ -33,9 +33,6 @@ export const StyledLink = styled(NavLink)`
     }
 `
 export const Layout = styled.main`
-    /* @media screen and (max-width: 767.98px){
-        max-width: 450px;
-        margin: 0 auto;
-    } */
     padding-top: ${p => p.theme.space[4]}px;
+    padding-bottom: ${p => p.theme.space[4]}px;
 `
