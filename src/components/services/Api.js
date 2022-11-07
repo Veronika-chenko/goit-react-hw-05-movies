@@ -9,7 +9,7 @@ export const getTrending = async (signal) => {
     return res.data;
 }
 
-export const getSearchData = async (queryName, signal) => {
+export const getSearchMovies = async (queryName, signal) => {
     const res = await axios.get(`/search/movie?api_key=${KEY}&query=${queryName}`, signal)
     return res.data;
 }

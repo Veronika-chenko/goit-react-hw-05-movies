@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'components/services/Api';
-import { TopTitle } from './Home.styled';
 import MovieCollection from 'components/MovieCollection';
+import { PageTitle } from 'components/App.styled';
 
 export default function Home() {
   const [movieList, setMovieList] = useState(null);
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <TopTitle>Trending today</TopTitle>
+      <PageTitle>Trending today</PageTitle>
       <MovieCollection movies={movieList} />
     </>
   );

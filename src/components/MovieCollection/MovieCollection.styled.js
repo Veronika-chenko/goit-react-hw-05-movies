@@ -40,6 +40,7 @@ export const ImageWrap = styled.div`
         display: block;
         height: 100%;
         width: 100%;
+        border-radius: ${p => p.theme.radii.normal} ${p => p.theme.radii.normal}  ${p => p.theme.radii.none} ${p => p.theme.radii.none};
     }
 `
 

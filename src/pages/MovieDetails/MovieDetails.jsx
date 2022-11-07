@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { getMovieDetails } from 'components/services/Api';
 import MovieDetailsCard from 'components/MovieDetailsCard';
@@ -45,13 +45,19 @@ export default function MovieDetails() {
       <TopTitle>Additional information</TopTitle>
       <AdditionalInfoWrap>
         <li>
-          <StyledLink to="cast">Cast</StyledLink>
+          <StyledLink to="cast" state={location.state}>
+            Cast
+          </StyledLink>
         </li>
         <li>
-          <StyledLink to="reviews">Reviews</StyledLink>
+          <StyledLink to="reviews" state={location.state}>
+            Reviews
+          </StyledLink>
         </li>
       </AdditionalInfoWrap>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }

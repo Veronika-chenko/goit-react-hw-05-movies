@@ -23,4 +23,9 @@ export const theme = {
         normal: '1px solid',
         bold: '2px solid',
     },
+    radii: {
+    none: '0',
+    normal: '4px',
+    round: '50%',
+    },
 }

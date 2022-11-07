@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
-import { getSearchData } from 'components/services/Api';
-import { SearchForm } from './Movies.styled';
+import { getSearchMovies } from 'components/services/Api';
 import MovieCollection from 'components/MovieCollection';
-import { TopTitle } from '../Home/Home.styled';
+import { PageTitle } from 'components/App.styled';
+import { SearchForm } from './Movies.styled';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
@@ -16,7 +16,7 @@ export default function Movies() {
     if (movieName) setQuery(movieName);
     (async function () {
       try {
-        const { results } = await getSearchData(query);
+        const { results } = await getSearchMovies(query);
         setMovieList(results);
       } catch (error) {
         console.log(error);
@@ -39,7 +39,7 @@ export default function Movies() {
 
   return (
     <>
-      <TopTitle>Movies</TopTitle>
+      <PageTitle>Movies</PageTitle>
       <div>
         <SearchForm onSubmit={handleSubmit}>
           <input type="text" name="searchQuery" />

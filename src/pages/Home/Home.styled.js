@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const TopTitle = styled.h1`
-    font-size: ${p => p.theme.fontSizes.l}px;
-    margin-bottom: ${p => p.theme.space[4]}px;
-`
 export const MovieList = styled.ul`
     display: grid;
     grid-template-columns: repeat(6, 1fr);
