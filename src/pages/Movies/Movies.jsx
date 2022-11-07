@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
+import { FiSearch } from 'react-icons/fi';
 import { getSearchMovies } from 'components/services/Api';
 import MovieCollection from 'components/MovieCollection';
 import { PageTitle } from 'components/App.styled';
-import { SearchForm } from './Movies.styled';
+import { SearchForm, SearchInput, SearchButton } from './Movies.styled';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
@@ -42,8 +43,10 @@ export default function Movies() {
       <PageTitle>Movies</PageTitle>
       <div>
         <SearchForm onSubmit={handleSubmit}>
-          <input type="text" name="searchQuery" />
-          <button type="submit">Search</button>
+          <SearchInput type="text" name="searchQuery" />
+          <SearchButton type="submit">
+            <FiSearch />
+          </SearchButton>
         </SearchForm>
         <MovieCollection movies={movieList} />
       </div>

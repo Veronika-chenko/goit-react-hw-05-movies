@@ -3,8 +3,10 @@ import { IMG_URL } from '../services/Api';
 import {
   CardInnerWrap,
   MovieImage,
-  Title,
+  MovieTitle,
   InfoWrap,
+  Title,
+  Text,
 } from './MovieDetailsCard.styled';
 
 export default function MovieDetailsCard({ movie }) {
@@ -16,15 +18,15 @@ export default function MovieDetailsCard({ movie }) {
         alt={movie.title ?? movie.name}
       />
       <InfoWrap>
-        <Title>
+        <MovieTitle>
           {movie.title ?? movie.name}
           <span>({movie.release_date.slice(0, 4)})</span>
-        </Title>
-        <p>User Score: {Math.round(movie.popularity)}%</p>
-        <h3>Overviews</h3>
-        <p>{movie.overview}</p>
-        <h3>Genres</h3>
-        <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+        </MovieTitle>
+        <Text>User Score: {Math.round(movie.popularity)}%</Text>
+        <Title>Overviews</Title>
+        <Text>{movie.overview}</Text>
+        <Title>Genres</Title>
+        <Text>{movie.genres.map(genre => genre.name).join(', ')}</Text>
       </InfoWrap>
     </CardInnerWrap>
   );

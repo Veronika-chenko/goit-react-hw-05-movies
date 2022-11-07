@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { IMG_URL } from 'components/services/Api';
-import { getMovieCredits } from 'components/services/Api';
-//
+import { getMovieCredits, IMG_URL } from 'components/services/Api';
 import {
   CastList,
   MovieItem,

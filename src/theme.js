@@ -8,8 +8,8 @@ export const theme = {
 
     fontSizes: {
         xs: 12,
-        s: 14,
-        m: 16,
+        s: 16,
+        m: 18,
         l: 32,
         xl: 64,
     },
@@ -24,8 +24,8 @@ export const theme = {
         bold: '2px solid',
     },
     radii: {
-    none: '0',
-    normal: '4px',
-    round: '50%',
+        none: '0',
+        normal: '4px',
+        round: '50%',
     },
 }

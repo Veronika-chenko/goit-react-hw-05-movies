@@ -5,7 +5,9 @@ import {
   MovieList,
   MovieItem,
   ImageWrap,
+  InfoWrap,
   MovieTitle,
+  MovieText,
 } from 'components/MovieCollection/MovieCollection.styled';
 
 export default function MovieCollection({ movies }) {
@@ -14,7 +16,7 @@ export default function MovieCollection({ movies }) {
 
   return (
     <MovieList>
-      {movies.map(({ id, poster_path, title, name }) => (
+      {movies.map(({ id, poster_path, title, name, release_date }) => (
         <MovieItem key={id}>
           <Link to={`/movies/${id}`} state={{ from: location }}>
             <ImageWrap>
@@ -27,7 +29,10 @@ export default function MovieCollection({ movies }) {
                 alt={title ?? name}
               />
             </ImageWrap>
-            <MovieTitle>{title ?? name}</MovieTitle>
+            <InfoWrap>
+              <MovieTitle>{title ?? name}</MovieTitle>
+              <MovieText>{release_date && release_date.slice(0, 4)}</MovieText>
+            </InfoWrap>
           </Link>
         </MovieItem>
       ))}

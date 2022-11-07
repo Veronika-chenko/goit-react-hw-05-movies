@@ -43,13 +43,18 @@ export const ImageWrap = styled.div`
         border-radius: ${p => p.theme.radii.normal} ${p => p.theme.radii.normal}  ${p => p.theme.radii.none} ${p => p.theme.radii.none};
     }
 `
-
-export const MovieTitle = styled.p`
+export const InfoWrap = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: ${p => p.theme.space[1]}px;
     padding-top: ${p => p.theme.space[3]}px;
     padding-bottom: ${p => p.theme.space[3]}px;
     padding-left: ${p => p.theme.space[2]}px;
     padding-right: ${p => p.theme.space[2]}px;
-    color: ${p => p.theme.colors.text}
+`
+export const MovieTitle = styled.p`
+    color: ${p => p.theme.colors.text};
+`
+export const MovieText = styled.p`
+    color: ${p => p.theme.colors.secondaryBg};
 `

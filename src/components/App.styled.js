@@ -24,6 +24,7 @@ export const Nav = styled.nav`
 `
 export const StyledLink = styled(NavLink)`
     padding: 16px 4px;
+    font-size: ${p => p.theme.fontSizes.m}px;
     font-weight: ${p => p.theme.fontWeights.preBold};
     color: ${p => p.theme.colors.text};
     &.active {
@@ -31,7 +32,7 @@ export const StyledLink = styled(NavLink)`
     }
 `
 export const Layout = styled.main`
-    padding-top: ${p => p.theme.space[4]}px;
+    padding-top: ${p => p.theme.space[3]}px;
     padding-bottom: ${p => p.theme.space[4]}px;
 `
 export const PageTitle = styled.h1`

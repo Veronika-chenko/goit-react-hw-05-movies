@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const CastList = styled.ul`
-    @media screen and (max-width: 767.98px){
-        display: flex;
-        flex-direction: column;
-        gap: ${p => p.theme.space[3]}px;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ${p => p.theme.space[3]}px; 
     
     @media screen and (min-width: 768px){
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: ${p => p.theme.space[3]}px; 
     }
 
     @media screen and (min-width: 1280px){
@@ -29,11 +25,12 @@ export const MovieItem = styled.li`
 
 export const ImageWrap = styled.div`
     @media screen and (min-width: 768px) {
-        height: 376px;
+        height: 356px;
     }
     @media screen and (min-width: 1280px) {
-        height: 310px;
+        height: 300px;
     }
+    
     & img {
         object-fit: cover;
         display: block;
