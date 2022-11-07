@@ -24,6 +24,7 @@ export const MovieItem = styled.li`
 `
 
 export const ImageWrap = styled.div`
+    height: 226px;
     @media screen and (min-width: 768px) {
         height: 356px;
     }
