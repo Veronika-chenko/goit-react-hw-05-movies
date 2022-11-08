@@ -24,12 +24,12 @@ export const MovieItem = styled.li`
 `
 
 export const ImageWrap = styled.div`
-    height: 226px;
+    height: 331px;
     @media screen and (min-width: 768px) {
-        height: 356px;
+        height: 376px;
     }
     @media screen and (min-width: 1280px) {
-        height: 300px;
+        height: 310px;
     }
     
     & img {

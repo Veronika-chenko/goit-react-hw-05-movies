@@ -14,7 +14,11 @@ export default function MovieDetailsCard({ movie }) {
   return (
     <CardInnerWrap>
       <MovieImage
-        src={IMG_URL + movie.poster_path}
+        src={
+          movie.poster_path
+            ? IMG_URL + movie.poster_path
+            : 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
+        }
         alt={movie.title ?? movie.name}
       />
       <InfoWrap>
@@ -31,7 +35,7 @@ export default function MovieDetailsCard({ movie }) {
     </CardInnerWrap>
   );
 }
-
+// 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
 MovieDetailsCard.propType = {
   movie: PropTypes.object.isRequired,
 };
