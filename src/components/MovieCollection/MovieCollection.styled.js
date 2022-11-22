@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ScrollToTop from 'react-scroll-to-top';
+
 
 export const MovieList = styled.ul`
     @media screen and (max-width: 767.98px){
@@ -57,4 +59,20 @@ export const MovieTitle = styled.p`
 `
 export const MovieText = styled.p`
     color: ${p => p.theme.colors.secondaryBg};
+`
+export const ScrollTop = styled(ScrollToTop)`
+  background-color: ${p => p.theme.colors.secondaryBg};
+  &.scroll-to-top {
+    background-color: #bfbdbf;
+    border-radius: ${p => p.theme.radii.round};
+    transition: background-color 250ms linear;
+  &:hover {
+    background-color: #ffa5009c;
+  }
+  }
+  & svg {
+    width: 28px;
+    height: 28px;
+    stroke: #fff
+  }
 `

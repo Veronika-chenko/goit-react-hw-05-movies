@@ -39,3 +39,9 @@ export const PageTitle = styled.h1`
     font-size: ${p => p.theme.fontSizes.l}px;
     margin-bottom: ${p => p.theme.space[4]}px;
 `
+export const ErrorMessage = styled.p`
+    font-size: ${p => p.theme.fontSizes.m}px;
+    color:  ${p => p.theme.colors.errorText};
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    margin-bottom: ${p => p.theme.space[3]}px;
+`

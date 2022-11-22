@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  background-color: #eff0f4;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -37,4 +38,11 @@ h4,
 p {
   margin: 0;
   padding: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }

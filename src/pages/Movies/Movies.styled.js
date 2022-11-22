@@ -12,6 +12,9 @@ export const SearchInput = styled.input`
   height: 30px;
   padding: ${p => p.theme.space[2]}px;
   padding-right: ${p => p.theme.space[5]}px;
+  background-color: inherit;
+  border: ${p => p.theme.borders.normal};
+  border-radius: ${p => p.theme.radii.normal};
 `
 export const SearchButton = styled.button`
   position: absolute;
@@ -23,11 +26,6 @@ export const SearchButton = styled.button`
   align-items: center;
   justify-content: center;
   padding: ${p => p.theme.space[3]}px;
-
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  
   & svg {
       width: 15px;
       height: 15px;

@@ -3,6 +3,7 @@ export const theme = {
         text: '#333333',
         accent: 'orange',
         secondaryBg: '#757575',
+        errorText: '#ff001b',
     },
     space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
 
